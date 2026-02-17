@@ -1,0 +1,26 @@
+{% extends 'todos/base.html' %}
+
+{% block title %}Templating{% endblock %}
+
+{% block content %}
+
+<h1>{{ name }}</h1>
+<h1>{{ age }}</h1>
+<h1>{{ skills }}</h1>
+
+<ul>
+    {% for skill in skills %}
+    <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+
+{% if skills|length > 3 %}
+<p>{{ name }} is very competent</p>
+{% elif 'Django' in skills %}
+<p>{{ name }} knows Django, that is awesome!</p>
+{% else %}
+<p>{{ name }} doesn't know enough</p>
+{% endif %}
+
+{% endblock %}
